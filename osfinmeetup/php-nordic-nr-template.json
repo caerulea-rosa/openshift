@@ -2,15 +2,15 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "php-nordic",
+    "name": "php-nordic-nr",
     "annotations": {
-      "description": "PHP template for Nordic deployments",
-      "tags": "php,nordic,osfi",
+      "description": "PHP template for Nordic deployments without route",
+      "tags": "php,nordic,osfi,noroute",
       "iconClass": "icon-php"
     }
   },
   "labels": {
-    "template": "php-nordic"
+    "template": "php-nordic-nr"
   },
   "objects": [
     {
@@ -32,20 +32,6 @@
         ],
         "selector": {
           "name": "${NAME}" 
-        }
-      }
-    },
-    {
-      "kind": "Route",
-      "apiVersion": "v1",
-      "metadata": {
-        "name": "${NAME}"
-      },
-      "spec": {
-        "host": "${APPLICATION_DOMAIN}",
-        "to": {
-          "kind": "Service",
-          "name": "${NAME}"
         }
       }
     },
@@ -195,7 +181,7 @@
       "displayName": "Name",
       "description": "The name assigned to all of the frontend objects defined in this template.",
       "required": true,
-      "value": "php-nordic"
+      "value": "php-nordic-nr"
     },
     {
       "name": "NAMESPACE",

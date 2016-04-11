@@ -1,0 +1,13 @@
+{
+    "kind": "Project",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "osfi",
+        "creationTimestamp": null,
+        "annotations": {
+            "openshift.io/node-selector": "",
+            "openshift.io/description": "",
+            "openshift.io/display-name": "OpenStack Fin Meetup"
+        }
+    }
+}

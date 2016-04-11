@@ -2,15 +2,16 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "php-nordic",
+    "name": "php-se-nr",
+    "namespace":"osfi",
     "annotations": {
-      "description": "PHP template for Nordic deployments",
-      "tags": "php,nordic,osfi",
+      "description": "PHP template for Sweden deployments without route",
+      "tags": "php,se,osfi,noroute",
       "iconClass": "icon-php"
     }
   },
   "labels": {
-    "template": "php-nordic"
+    "template": "php-se-nr"
   },
   "objects": [
     {
@@ -32,20 +33,6 @@
         ],
         "selector": {
           "name": "${NAME}" 
-        }
-      }
-    },
-    {
-      "kind": "Route",
-      "apiVersion": "v1",
-      "metadata": {
-        "name": "${NAME}"
-      },
-      "spec": {
-        "host": "${APPLICATION_DOMAIN}",
-        "to": {
-          "kind": "Service",
-          "name": "${NAME}"
         }
       }
     },
@@ -152,10 +139,13 @@
             }
           },
           "spec": {
+            "nodeSelector": {
+              "region": "se_primary"
+            },
             "containers": [
               {
-                "name": "php-nordic",
-                "image": "php-nordic",
+                "name": "php-se",
+                "image": "php-se",
                 "ports": [
                   {
                     "containerPort": 8080
@@ -195,7 +185,7 @@
       "displayName": "Name",
       "description": "The name assigned to all of the frontend objects defined in this template.",
       "required": true,
-      "value": "php-nordic"
+      "value": "php-fi"
     },
     {
       "name": "NAMESPACE",
@@ -207,13 +197,13 @@
       "name": "MEMORY_LIMIT",
       "displayName": "Memory Limit",
       "description": "Maximum amount of memory the container can use.",
-      "value": "256Mi"
+      "value": "512Mi"
     },
     {
       "name": "SOURCE_REPOSITORY_URL",
       "displayName": "Git Repository URL",
       "description": "The URL of the repository with your application source code.",
-      "value": "https://github.com/tahonen/osfi.git"
+      "value": "https://github.com/openshift/cakephp-ex.git"
     },
     {
       "name": "SOURCE_REPOSITORY_REF",
