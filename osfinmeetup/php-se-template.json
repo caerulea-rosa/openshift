@@ -129,7 +129,7 @@
             "imageChangeParams": {
               "automatic": true,
               "containerNames": [
-                "php-nordic"
+                "php-se"
               ],
               "from": {
                 "kind": "ImageStreamTag",
@@ -199,7 +199,7 @@
       "displayName": "Name",
       "description": "The name assigned to all of the frontend objects defined in this template.",
       "required": true,
-      "value": "php-fi"
+      "value": "php-se"
     },
     {
       "name": "NAMESPACE",
@@ -211,7 +211,7 @@
       "name": "MEMORY_LIMIT",
       "displayName": "Memory Limit",
       "description": "Maximum amount of memory the container can use.",
-      "value": "512Mi"
+      "value": "256Mi"
     },
     {
       "name": "SOURCE_REPOSITORY_URL",
