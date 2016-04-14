@@ -3,7 +3,6 @@
   "apiVersion": "v1",
   "metadata": {
     "name": "php-fi",
-    "namespace":"osfi",
     "annotations": {
       "description": "PHP template for Finland deployments",
       "tags": "php,fi,osfi",
@@ -205,7 +204,7 @@
       "name": "NAMESPACE",
       "displayName": "Namespace",
       "description": "The OpenShift Namespace where the ImageStream resides.",
-      "value": "openshift"
+      "value": "osfi"
     },
     {
       "name": "MEMORY_LIMIT",
