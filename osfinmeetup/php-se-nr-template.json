@@ -139,7 +139,7 @@
           },
           "spec": {
             "nodeSelector": {
-              "region": "se_primary"
+              "zone": "west"
             },
             "containers": [
               {
