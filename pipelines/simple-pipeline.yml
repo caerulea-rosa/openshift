@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  annotations:
+    pipeline.alpha.openshift.io/uses: '[{"name": "pte", "namespace": "pte", "kind":
+      "DeploymentConfig"}]'
+  creationTimestamp: null
+  labels:
+    app: pte
+    name: pte-pipeline
+    template: application-template-development-pipeline
+  name: pte-pipeline
+spec:
+  output: {}
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    type: None
+  strategy:
+    jenkinsPipelineStrategy:
+      jenkinsfile: |-
+        node('maven') {
+        stage 'build'
+        openshiftBuild(buildConfig: 'pte', showBuildLogs: 'true', namespace: 'pte')
+        stage 'deploy'
+        openshiftDeploy(deploymentConfig: 'pte', namespace: 'pte')
+        }
+    type: JenkinsPipeline
+  triggers:
+  - github:
+      secret: secret101
+    type: GitHub
+  - generic:
+      secret: secret101
+    type: Generic
+status:
+  lastVersion: 0
