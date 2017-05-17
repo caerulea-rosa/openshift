@@ -18,10 +18,10 @@ objects:
   kind: "BuildConfig"
   metadata:
     name: ${NAME}
-spec:
-  source:
-    git:
-      uri: ${GIT_SOURCE_URL}
-  strategy:
-    jenkinsPipelineStrategy:
-      jenkinsfilePath: Jenkinsfile
+  spec:
+    source:
+      git:
+        uri: ${GIT_SOURCE_URL}
+    strategy:
+      jenkinsPipelineStrategy:
+        jenkinsfilePath: Jenkinsfile
